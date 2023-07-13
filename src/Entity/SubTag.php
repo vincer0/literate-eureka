@@ -8,7 +8,7 @@ use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity]
-class Tag
+class SubTag
 {
     #[ORM\Id, ORM\Column(type: "integer")]
     #[ORM\GeneratedValue]
@@ -17,26 +17,17 @@ class Tag
     #[ORM\Column(type: Types::STRING)]
     private ?string $name = null;
 
-    #[ORM\ManyToMany(targetEntity: BlogPost::class, mappedBy: 'tag')]
-    private Collection $blogPosts;
-
-    #[ORM\ManyToMany(targetEntity: SubTag::class, mappedBy: 'tag')]
-    private Collection $subTags;
+    #[ORM\ManyToMany(targetEntity: Tag::class, inversedBy: 'tag')]
+    private ?Collection $tags = null;
 
     public function __construct()
     {
-        $this->blogPosts = new ArrayCollection();
-        $this->subTags = new ArrayCollection();
+        $this->tags = new ArrayCollection();
     }
 
     public function getBlogPosts(): Collection
     {
-        return $this->blogPosts;
-    }
-
-    public function getSubTags(): Collection
-    {
-        return $this->subTags;
+        return $this->tags;
     }
 
     public function getName(): string

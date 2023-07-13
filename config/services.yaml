@@ -29,7 +29,7 @@ services:
           name: sonata.admin,
           model_class: App\Entity\Category,
           manager_type: orm,
-          label: Category,
+          label: Categories,
         }
   admin.blog_post:
     class: App\Admin\BlogPostAdmin
@@ -38,7 +38,7 @@ services:
           name: sonata.admin,
           model_class: App\Entity\BlogPost,
           manager_type: orm,
-          label: "Blog post",
+          label: "Blog posts",
         }
   admin.tag:
     class: App\Admin\TagAdmin
@@ -47,5 +47,14 @@ services:
           name: sonata.admin,
           model_class: App\Entity\Tag,
           manager_type: orm,
-          label: "Tag",
+          label: "Tags",
+        }
+  admin.sub_tag:
+    class: App\Admin\SubTagAdmin
+    tags:
+      - {
+          name: sonata.admin,
+          model_class: App\Entity\SubTag,
+          manager_type: orm,
+          label: "Sub Tags",
         }
