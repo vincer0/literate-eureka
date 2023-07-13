@@ -43,5 +43,6 @@ final class TagAdmin extends AbstractAdmin
     protected function configureShowFields(ShowMapper $show): void
     {
         $show->add('name');
+        // TODO show sub task just to prove thay are assigned
     }
 }
