@@ -29,7 +29,6 @@ final class BlogPostAdmin extends AbstractAdmin
             'allow_delete' => true,
             'entry_type' => TagForm::class,
             'prototype' => true,
-            'by_reference' => true
         ]);
     }
 
